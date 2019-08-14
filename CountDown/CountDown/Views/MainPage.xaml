@@ -30,7 +30,7 @@
                         HorizontalTextAlignment="Center"
                         IsVisible="{Binding StartVisivel}"
                         Text="{x:Static utils:FontAwesomeIcons.PlayCircle}"
-                        TextColor="Black"
+                        TextColor="Green"
                         VerticalTextAlignment="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding StartCommand}" />
@@ -46,7 +46,7 @@
                             FontSize="30"
                             HorizontalTextAlignment="Center"
                             Text="{x:Static utils:FontAwesomeIcons.PauseCircle}"
-                            TextColor="Black"
+                            TextColor="Yellow"
                             VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding PauseCommand}" />
@@ -58,7 +58,7 @@
                             FontSize="30"
                             HorizontalTextAlignment="Center"
                             Text="{x:Static utils:FontAwesomeIcons.StopCircle}"
-                            TextColor="Black"
+                            TextColor="Red"
                             VerticalTextAlignment="Center">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding StopCommand}" />
