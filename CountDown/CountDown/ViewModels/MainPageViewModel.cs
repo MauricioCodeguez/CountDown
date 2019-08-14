@@ -3,12 +3,12 @@ using System.Threading;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CountDown
+namespace CountDown.ViewsModels
 {
     public class MainPageViewModel : ViewModelBase
     {
         private static CancellationTokenSource _cancellationTokenSource;
-        //private Timer _timer;
+        //private CountDown.Classes.Timer _timer;
 
         private TimeSpan _totalSeconds;
         public TimeSpan TotalSeconds

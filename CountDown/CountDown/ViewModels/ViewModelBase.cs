@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CountDown
+namespace CountDown.ViewsModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

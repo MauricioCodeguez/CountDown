@@ -2,7 +2,7 @@
 using System.Threading;
 using Xamarin.Forms;
 
-namespace CountDown
+namespace CountDown.Classes
 {
     public class Timer
     {
