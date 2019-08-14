@@ -5,28 +5,71 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:utils="clr-namespace:CountDown.Utils"
     mc:Ignorable="d">
 
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <Label
-                FontAttributes="Bold"
-                FontSize="20"
-                HorizontalOptions="CenterAndExpand"
-                Text="{Binding TotalSeconds, StringFormat='{0:mm\\:ss}'}"
-                TextColor="Black" />
-            <Button
-                Command="{Binding StartCommand}"
-                FontSize="20"
-                Text="Start" />
-            <Button
-                Command="{Binding PauseCommand}"
-                FontSize="20"
-                Text="Pause" />
-            <Button
-                Command="{Binding StopCommand}"
-                FontSize="20"
-                Text="Stop" />
+        <StackLayout Margin="10" Orientation="Vertical">
+            <Frame
+                Padding="10"
+                BackgroundColor="LightBlue"
+                CornerRadius="20"
+                HasShadow="True"
+                HorizontalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding TotalSeconds, StringFormat='{0:mm\\:ss}'}"
+                        TextColor="Black"
+                        VerticalTextAlignment="Center" />
+                    <Label
+                        FontFamily="{StaticResource FontAwesomeSolid}"
+                        FontSize="30"
+                        HorizontalTextAlignment="Center"
+                        IsVisible="{Binding StartVisivel}"
+                        Text="{x:Static utils:FontAwesomeIcons.PlayCircle}"
+                        TextColor="Black"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StartCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Grid IsVisible="{Binding StartVisivel, Converter={StaticResource InvertedBooleanConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static utils:FontAwesomeIcons.PauseCircle}"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PauseCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label
+                            Grid.Column="1"
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static utils:FontAwesomeIcons.StopCircle}"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding StopCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <Entry Placeholder="Digite a palavra" />
+            <Button Text="Salvar" />
         </StackLayout>
     </ContentPage.Content>
 

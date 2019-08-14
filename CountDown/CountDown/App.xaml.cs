@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CountDown.Repositories;
+using CountDown.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CountDown
 {
@@ -9,6 +9,12 @@ namespace CountDown
         public App()
         {
             InitializeComponent();
+
+#if DEBUG
+            HotReloader.Current.Run(this);
+#endif
+
+            DependencyService.Register<IPalavrasReservadasRepositorio, PalavrasReservadasRepositorio>();
 
             MainPage = new MainPage();
         }
